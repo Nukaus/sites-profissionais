@@ -21,7 +21,8 @@ Alguns dos projetos disponíveis neste repositório:
 | Projeto | Descrição | Acesso |
 |---------|-----------|---------|
 | **Landing Page - Ferreira & Leal Advogados** | Landing page para escritório de advocacia, com layout responsivo e botões de contato. | [Ver site](https://nukaus.github.io/Landing-Page-Advogados/) / [Código](https://github.com/nukaus/Landing-Page-Advogados) |
-| *(Adicione outros projetos aqui)* | *(Exemplo: Loja online, Portfólio pessoal, etc.)* | *(link)* |
+| **Landing Page - Fotografia** | Landing pege para fotógrafo | [Ver site](https://nukaus.github.io/site_fotografias/) / [Código](https://github.com/nukaus/site_fotografia) |
+| **Landing Page - Negócios** | Landing pege para empresas divulgares seus negócios | [Ver site](https://nukaus.github.io/site_negocio/) / [Código](https://github.com/nukaus/site_negocio) |
 
 > Conforme novos projetos forem concluídos, eles serão adicionados aqui com seus respectivos links.
 
@@ -45,6 +46,6 @@ Alguns dos projetos disponíveis neste repositório:
 3. Para editar, basta clonar o repositório:
 
    ```bash
-   git clone https://github.com/nukaus/NOME-DO-PROJETO.git
+   git clone https://github.com/nukaus/sites-profissionais.git
 
 
