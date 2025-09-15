@@ -1,0 +1,126 @@
+header{
+    background-color: blue;
+    padding: 10px;
+}
+
+#home{
+   text-align: center;
+   color: white;
+}
+
+#about{
+    display: flex;
+    margin-top: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#abouttwo{
+   margin: 30px 0 0 15px;
+}
+
+#servicesone{
+    display: flex;
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+.servicestwo{
+    max-width: 300px;
+    padding: 10px;
+    margin: auto;
+    text-align: justify;
+    
+}
+
+h3{
+    text-align: center;
+}
+
+.servicestwo a{
+    text-decoration: none;
+}
+
+.imagem{
+    display: flex;
+}
+
+.servicesimg{
+    width: 200px;
+    height: 200px;
+    margin: auto;
+
+}
+#contat{
+    display: flex;
+    justify-content: space-between;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px; 
+    gap: 10px;
+    margin: 30px 0 0 15px;
+     
+}
+
+input, textarea, button{
+    padding: 5px;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.formulario button{
+    width: 198px;
+}
+
+.formulario a{
+    text-decoration: none;
+    color: black;
+}
+
+.icon{
+    width: 25px;
+    height: 25px;
+}
+
+@media (max-width: 760px){
+#about{
+    flex-wrap: wrap;
+}
+
+#imgper{
+    margin: auto;
+}
+
+#servicesone{
+    display: block;
+}
+
+.servicestwo{
+    max-width: 200px;
+    padding: 10px;
+    
+}
+
+
+.servicesimg{
+    width: 100px;
+    height: 100px;
+}
+}
+
+@media (max-width: 1010px){
+#servicesone{
+    display: block;
+}
+
+.servicesimg{
+    width: 80px;
+    height: 80px;
+}
+}

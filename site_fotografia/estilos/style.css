@@ -1,0 +1,147 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+
+
+#head{
+    display: flex;
+    justify-content: space-between;
+}
+
+#headerchild{
+    width: 290px;
+    height: 290px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+hr{
+    margin: 20px;
+}
+
+#portimg{
+    display: flex;
+    justify-content: center;
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.imgport{
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+}
+
+.imgport:hover{
+    transform: scale(1.05);
+}
+
+.img-responsiva {
+  width: 100%;
+  height: 160px;
+  display: block;
+  border-radius: 10px;
+  
+}
+
+#servicos{
+    display: flex;
+    justify-content: space-between;
+}
+
+.trabalhos{
+    width: 400px;
+    height: 165px;
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.trabalhos:hover{
+    transform: scale(1.05);
+    text-decoration: underline;
+    
+}
+
+
+#formu{
+    display: flex;
+   justify-content: space-around;
+}
+
+.formulario {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+label {
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+input, textarea{
+    padding: 5px;
+    font-size: 16px;
+    margin: 5px;
+    resize: none;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+}
+
+#subject{
+    height: 110px;
+}
+
+.formulario button{
+    width: 198px;
+    align-self: center;
+}
+
+footer{
+    margin-top: 20px;
+}
+
+@media (max-width: 760px){
+    #headerchild{
+        max-width: 200px;
+        max-height: 200px;
+        border-radius: 10px;
+        margin: 10px;
+    }
+
+    #portimg{
+        display: block;
+    }
+
+    #servicos{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 1024px){
+   
+}
