@@ -22,7 +22,7 @@ Alguns dos projetos disponíveis neste repositório:
 |---------|-----------|---------|
 | **Landing Page - Ferreira & Leal Advogados** | Landing page para escritório de advocacia, com layout responsivo e botões de contato. | [Ver site](https://nukaus.github.io/sites-profissionais/landpage_ferreira&leal/) / [Código](https://github.com/Nukaus/sites-profissionais/tree/721ebfc295e53a8e52f3f135e9d69933c71f1861/landpage_ferreira%26leal) |
 | **Landing Page - Fotografia** | Landing pege para fotógrafo | [Ver site](https://nukaus.github.io/sites-profissionais/site_fotografia/) / [Código](https://github.com/Nukaus/sites-profissionais/tree/721ebfc295e53a8e52f3f135e9d69933c71f1861/site_fotografia) |
-| **Landing Page - Negócios** | Landing pege para empresas divulgares seus negócios | [Ver site](https://nukaus.github.io/sites-profissionais/site_negocio/) / [Código](https://github.com/nukaus/site_negocio) |
+| **Landing Page - Negócios** | Landing pege para empresas divulgares seus negócios | [Ver site](https://nukaus.github.io/sites-profissionais/site_negocio/) / [Código](https://github.com/Nukaus/sites-profissionais/tree/2e26f836f7761c0fcdbabad75acf4fdc0add6990/site_negocio) |
 
 > Conforme novos projetos forem concluídos, eles serão adicionados aqui com seus respectivos links.
 
