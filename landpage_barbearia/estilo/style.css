@@ -123,3 +123,27 @@ footer{
 footer h1,p{
     margin: 10px;
 }
+
+@media (max-width: 768px){
+    #redes{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #redes > .div-botao{
+        margin: 10px auto 50px auto;
+    }
+
+    #sobre-nos{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #galeria img{
+        max-width: 400px;
+    }
+
+    #galeria{
+        margin: 0 auto;
+    }
+}
