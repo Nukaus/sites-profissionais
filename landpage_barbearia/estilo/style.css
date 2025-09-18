@@ -141,6 +141,7 @@ footer h1,p{
 
     #galeria img{
         max-width: 400px;
+        padding: 15px;
     }
 
     #galeria{
