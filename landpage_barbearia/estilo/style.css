@@ -8,10 +8,22 @@
     --corfont: #4F5B66;
     --cormain: #FFFFFF;
     --corfooter: #8B2F2F;
+    --fonttitle: "Poppins", sans-serif;
+    --fonttextos: "Open Sans", sans-serif;
+}
+
+body h1, h2{
+    font-family: var(--fonttitle);
+}
+
+body p{
+    font-family: var(--fonttextos);
 }
 
 header{
     background-color: var(--corheader);
+    box-shadow: 0 2px 4px 1px var(--corfont);
+    margin-bottom: 10px;
 }
 
 main{
@@ -60,6 +72,11 @@ main{
 
 #titulo{
     text-align: center;
+    line-height: 1.6;
+}
+
+#titulo p{
+    font-size: 25px;
 }
 
 .div-botao{
@@ -75,6 +92,7 @@ main{
     width: 100%;
     height: 100%;
     line-height: 50px;
+    font-family: var(--fonttextos);
     font-size: 25px;
     background-color: var(--corfooter);
     color: var(--cormain);
@@ -111,6 +129,37 @@ main{
 #sobre-texto{
     align-content: center;
     padding: 10px;
+    
+}
+
+#sobre-texto p{
+    text-align: justify;
+    line-height: 1.6;
+    text-indent: 30px;
+}
+
+#titleservice{
+    margin-top: 30px;
+}
+
+.servicos{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.nossos-servicos{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 10px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.cortes{
+    padding: 10px;
+    border-radius: 8px;
+    /* border: 1px solid var(--corfont); */
 }
 
 footer{
@@ -118,11 +167,9 @@ footer{
     color: white;
     padding: 10px;
     text-align: center;
+    line-height: 1.6;
 }
 
-footer h1,p{
-    margin: 10px;
-}
 
 @media (max-width: 768px){
     #redes{
@@ -146,5 +193,15 @@ footer h1,p{
 
     #galeria{
         margin: 0 auto;
+    }
+
+    #titleservice{
+        text-indent: 20px;
+    }
+
+    .nossos-servicos{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
 }
