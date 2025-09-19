@@ -162,6 +162,10 @@ main{
     /* border: 1px solid var(--corfont); */
 }
 
+.cortes h2{
+    font-weight: 100;
+}
+
 footer{
     background-color: var(--corfooter);
     color: white;
@@ -172,6 +176,14 @@ footer{
 
 
 @media (max-width: 768px){
+    #titulo h1{
+        font-size: 25px;
+    }
+
+    #titulo p{
+        font-size: 20px;
+    }
+
     #redes{
         display: flex;
         flex-direction: column;
