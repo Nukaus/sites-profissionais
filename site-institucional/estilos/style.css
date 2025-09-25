@@ -134,7 +134,15 @@ footer{
     body{
         font-size: 14px;
     }
-    
+
+    .logo{
+        width: 200px;
+    }
+
+    .logo img{
+        width: 200px;
+        height: 200px;
+
     .sobre{
         display: flex;
         flex-direction: column;
