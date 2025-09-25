@@ -131,6 +131,10 @@ footer{
 }
 
 @media (max-width: 768px){
+    body{
+        font-size: 14px;
+    }
+    
     .sobre{
         display: flex;
         flex-direction: column;
@@ -149,11 +153,16 @@ footer{
         display: flex;
         flex-direction: column;
         gap: 50px;
+        padding: 20px;
 
     }
 
     .parcerias{
         margin: auto;
         
+    }
+
+    .parcerias img{
+        max-width: 300px;
     }
 }
