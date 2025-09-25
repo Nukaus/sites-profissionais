@@ -131,6 +131,7 @@ footer{
 }
 
 @media (max-width: 768px){
+
     body{
         font-size: 14px;
     }
@@ -142,6 +143,7 @@ footer{
     .logo img{
         width: 200px;
         height: 200px;
+    }
 
     .sobre{
         display: flex;
