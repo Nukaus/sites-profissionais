@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+:root{
+    --titulos: #e0e0e0;
+    --fundo: #0f2027;
+    --textosecundario: #a0a0b2;
+    --fundosecundario: #1a1a2e;
+    --fonttitle: "Poppins", sans-serif;
+    --fonttextos: "Open Sans", sans-serif;
+}
+
+img{
+    width: 100vw;
+    height: 91vh;
+}
+
+.links{
+    display: flex;
+}
+
+a{
+    width: 200px;
+    background-color: var(--fundosecundario);
+    color: var(--textosecundario);
+    padding: 8px;
+    text-align: center;
+    font-weight: bolder;
+    text-decoration: none;
+
+}
+
+a:hover{
+    background-color: var(--fundo);
+    color: var(--titulos);
+}
