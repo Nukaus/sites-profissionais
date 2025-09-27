@@ -4,13 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Institucional</title>
-    <link rel="stylesheet" href="estilos/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Faculty+Glyphic&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Passion+One:wght@400;700;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Sriracha&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-body-second">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">TuVI</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#sobre">Sobre</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#clientes">Nossos Clientes</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
     <header>
         <div class="apresentacao">
             <div class="logo">
@@ -19,10 +41,13 @@
             <div id="titulo">
                 <h1>Transformando dados em conhecimento e inteligência em aprendizado.</h1>
             </div>
+            <div class="div-botao">
+                <a href="#" class="botao">Conhecer nosso App</a>
+            </div>
         </div>
     </header>
     <main>
-        <section class="sobre">
+        <section id="sobre">
             <div class="telas_app">
                 <img src="imagens/app-1.jpeg" alt="">
             </div>
@@ -34,7 +59,7 @@
             </div>
         </section>
         <hr class="divisor">
-        <section class="clientes">
+        <section id="clientes">
             <div class="n_clientes">
                 <h1>Quem são nossos clientes ?</h1>
                 <div class="lista">
@@ -51,9 +76,17 @@
                 <img src="imagens/parceiros.png" alt="">
             </div>
         </section>
+        <section class="flex">
+            <div class="div-botao">
+                <a href="#" class="botao2">Conheça nosso App</a>
+            </div>
+        </section>
     </main>
     <footer>
         <p>© Todos direitos reservados</p>
     </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
