@@ -280,6 +280,7 @@ footer{
 
     .rec{
         margin: auto;
-        max-width: 350px;
+        max-width: 300px;
+        min-height: 195px;
     }
 }
