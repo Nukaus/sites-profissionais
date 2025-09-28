@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha do Tempo do Projeto</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #00f260 0%, #0575e6 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        /* Linha principal */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #4facfe, #00f2fe);
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 60px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-item.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 60%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 60%;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Setas dos cards */
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid white;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-right: 15px solid white;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);
+            z-index: 10;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-icon:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .phase-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .phase-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .phase-details {
+            display: grid;
+            gap: 10px;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .detail-icon {
+            font-size: 1rem;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 80px;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -15px;
+                right: auto;
+                border-right: 15px solid white;
+                border-left: none;
+                border-top: 15px solid transparent;
+                border-bottom: 15px solid transparent;
+            }
+
+            .timeline-icon {
+                left: 30px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Linha do Tempo do Projeto</h1>
+            <p>Acompanhe todas as etapas do desenvolvimento</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon">💡</div>
+                <div class="timeline-content">
+                    <h3 class="phase-title">Ideia Inicial</h3>
+                    <p class="phase-description">Identificação da oportunidade e pesquisa do problema na instituição</p>
+                    <div class="phase-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">🔍</span>
+                            <span>Análise de necessidades</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📊</span>
+                            <span>Pesquisa de mercado</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">⏱️</span>
+                            <span>Tempo: 2-3 semanas</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💰</span>
+                            <span>Custo: R$ 2.000 - R$ 3.500</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🎨</div>
+                <div class="timeline-content">
+                    <h3 class="phase-title">Protótipo</h3>
+                    <p class="phase-description">Criação das telas e wireframes no Canva para validação do conceito</p>
+                    <div class="phase-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📱</span>
+                            <span>Design de interfaces</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🎯</span>
+                            <span>Experiência do usuário</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">⏱️</span>
+                            <span>Tempo: 3-4 semanas</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💰</span>
+                            <span>Custo: R$ 4.000 - R$ 6.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🛠️</div>
+                <div class="timeline-content">
+                    <h3 class="phase-title">Tecnologias</h3>
+                    <p class="phase-description">Implementação usando HTML, CSS, JavaScript, APIs e Inteligência Artificial</p>
+                    <div class="phase-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">💻</span>
+                            <span>Frontend: HTML, CSS, JS</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🔗</span>
+                            <span>Integração com APIs</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🤖</span>
+                            <span>Implementação de IA</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">⏱️</span>
+                            <span>Tempo: 8-12 semanas</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💰</span>
+                            <span>Custo: R$ 15.000 - R$ 25.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🧪</div>
+                <div class="timeline-content">
+                    <h3 class="phase-title">Testes & Validação</h3>
+                    <p class="phase-description">Testes de funcionalidade, performance e validação com usuários finais</p>
+                    <div class="phase-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">✅</span>
+                            <span>Testes funcionais</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👥</span>
+                            <span>Feedback dos usuários</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">⏱️</span>
+                            <span>Tempo: 2-3 semanas</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💰</span>
+                            <span>Custo: R$ 3.000 - R$ 5.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🚀</div>
+                <div class="timeline-content">
+                    <h3 class="phase-title">Lançamento</h3>
+                    <p class="phase-description">Deploy final e lançamento oficial do projeto para produção</p>
+                    <div class="phase-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">🌐</span>
+                            <span>Deploy em produção</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📈</span>
+                            <span>Monitoramento inicial</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">⏱️</span>
+                            <span>Tempo: 1-2 semanas</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💰</span>
+                            <span>Custo: R$ 2.000 - R$ 4.000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-icon">🔧</div>
+                <div class="timeline-content">
+                    <h3 class="phase-title">Manutenção</h3>
+                    <p class="phase-description">Suporte contínuo, atualizações e melhorias baseadas no feedback</p>
+                    <div class="phase-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">🛡️</span>
+                            <span>Suporte técnico</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🔄</span>
+                            <span>Atualizações regulares</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">⏱️</span>
+                            <span>Tempo: Contínuo</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💰</span>
+                            <span>Custo: R$ 1.500/mês</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animação de scroll
+        function animateOnScroll() {
+            const items = document.querySelectorAll('.timeline-item');
+            const windowHeight = window.innerHeight;
+            
+            items.forEach(item => {
+                const itemTop = item.getBoundingClientRect().top;
+                const itemVisible = 150;
+                
+                if (itemTop < windowHeight - itemVisible) {
+                    item.classList.add('animate');
+                }
+            });
+        }
+
+        // Barra de progresso
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            
+            document.getElementById('progressBar').style.width = scrollPercent + '%';
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', () => {
+            animateOnScroll();
+            updateProgressBar();
+        });
+
+        window.addEventListener('load', () => {
+            animateOnScroll();
+            updateProgressBar();
+        });
+
+        // Animação inicial
+        setTimeout(() => {
+            animateOnScroll();
+        }, 100);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985ee0a5967ed917',t:'MTc1OTAxNjc1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

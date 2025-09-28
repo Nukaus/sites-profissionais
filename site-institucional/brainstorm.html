@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Mental - Brainstorming do App</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .canvas {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            min-width: 1400px;
+            min-height: 900px;
+            background-image: 
+                radial-gradient(circle at 20px 20px, #e0e0e0 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .central-node {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .branch-node {
+            position: absolute;
+            width: 220px;
+            min-height: 80px;
+            padding: 20px;
+            border-radius: 15px;
+            color: white;
+            font-weight: 600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .branch-node:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .branch-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .branch-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .branch-subtitle {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* Cores dos branches */
+        .tech-branch {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            top: 20%;
+            left: 15%;
+            animation-delay: 0.2s;
+        }
+
+        .features-branch {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+            top: 15%;
+            right: 15%;
+            animation-delay: 0.4s;
+        }
+
+        .audience-branch {
+            background: linear-gradient(135deg, #45b7d1, #96c93d);
+            bottom: 20%;
+            left: 15%;
+            animation-delay: 0.6s;
+        }
+
+        .costs-branch {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            bottom: 15%;
+            right: 15%;
+            animation-delay: 0.8s;
+        }
+
+        .differentials-branch {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            color: #333 !important;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            animation-delay: 1s;
+        }
+
+        /* Conectores */
+        .connector {
+            position: absolute;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 3px;
+            border-radius: 2px;
+            z-index: 1;
+            animation: drawLine 1s ease forwards;
+            transform-origin: left center;
+            transform: scaleX(0);
+        }
+
+        @keyframes drawLine {
+            to { transform: scaleX(1); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Conectores específicos */
+        .connector-1 {
+            top: 35%;
+            left: 35%;
+            width: 180px;
+            transform: rotate(-25deg);
+            animation-delay: 1.2s;
+        }
+
+        .connector-2 {
+            top: 30%;
+            right: 35%;
+            width: 180px;
+            transform: rotate(25deg);
+            animation-delay: 1.4s;
+        }
+
+        .connector-3 {
+            bottom: 35%;
+            left: 35%;
+            width: 180px;
+            transform: rotate(25deg);
+            animation-delay: 1.6s;
+        }
+
+        .connector-4 {
+            bottom: 30%;
+            right: 35%;
+            width: 180px;
+            transform: rotate(-25deg);
+            animation-delay: 1.8s;
+        }
+
+        .connector-5 {
+            top: 50%;
+            right: 25%;
+            width: 120px;
+            transform: translateY(-50%);
+            animation-delay: 2s;
+        }
+
+        /* Sub-nodes */
+        .sub-node {
+            position: absolute;
+            width: 140px;
+            padding: 12px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-size: 0.85rem;
+            color: #333;
+            text-align: center;
+            border-left: 4px solid;
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .sub-node-tech-1 {
+            top: 5%;
+            left: 5%;
+            border-color: #ff6b6b;
+            animation-delay: 2.2s;
+        }
+
+        .sub-node-tech-2 {
+            top: 8%;
+            left: 25%;
+            border-color: #ff6b6b;
+            animation-delay: 2.4s;
+        }
+
+        .sub-node-features-1 {
+            top: 5%;
+            right: 5%;
+            border-color: #4ecdc4;
+            animation-delay: 2.6s;
+        }
+
+        .sub-node-features-2 {
+            top: 8%;
+            right: 25%;
+            border-color: #4ecdc4;
+            animation-delay: 2.8s;
+        }
+
+        .sub-node-audience-1 {
+            bottom: 5%;
+            left: 5%;
+            border-color: #45b7d1;
+            animation-delay: 3s;
+        }
+
+        .sub-node-audience-2 {
+            bottom: 8%;
+            left: 25%;
+            border-color: #45b7d1;
+            animation-delay: 3.2s;
+        }
+
+        .sub-node-costs-1 {
+            bottom: 5%;
+            right: 5%;
+            border-color: #f093fb;
+            animation-delay: 3.4s;
+        }
+
+        .sub-node-costs-2 {
+            bottom: 8%;
+            right: 25%;
+            border-color: #f093fb;
+            animation-delay: 3.6s;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .canvas {
+                min-width: 100vw;
+                padding: 20px;
+            }
+            
+            .central-node {
+                width: 200px;
+                height: 80px;
+                font-size: 1.2rem;
+            }
+            
+            .branch-node {
+                width: 160px;
+                padding: 15px;
+            }
+            
+            .connector {
+                display: none;
+            }
+            
+            .tech-branch { top: 10%; left: 10%; }
+            .features-branch { top: 10%; right: 10%; }
+            .audience-branch { bottom: 30%; left: 10%; }
+            .costs-branch { bottom: 30%; right: 10%; }
+            .differentials-branch { bottom: 10%; left: 50%; transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🧠 Brainstorming - Mapa Mental</h1>
+    </div>
+
+    <div class="canvas">
+        <!-- Nó central -->
+        <div class="central-node">
+            <div>
+                <div>📱 MeuApp</div>
+                <div style="font-size: 0.8rem; opacity: 0.9;">Solução Inovadora</div>
+            </div>
+        </div>
+
+        <!-- Conectores -->
+        <div class="connector connector-1"></div>
+        <div class="connector connector-2"></div>
+        <div class="connector connector-3"></div>
+        <div class="connector connector-4"></div>
+        <div class="connector connector-5"></div>
+
+        <!-- Branches principais -->
+        <div class="branch-node tech-branch">
+            <div class="branch-icon">⚙️</div>
+            <div class="branch-title">Tecnologias</div>
+            <div class="branch-subtitle">Stack Moderno</div>
+        </div>
+
+        <div class="branch-node features-branch">
+            <div class="branch-icon">✨</div>
+            <div class="branch-title">Funcionalidades</div>
+            <div class="branch-subtitle">Recursos Principais</div>
+        </div>
+
+        <div class="branch-node audience-branch">
+            <div class="branch-icon">👥</div>
+            <div class="branch-title">Público-Alvo</div>
+            <div class="branch-subtitle">Usuários Finais</div>
+        </div>
+
+        <div class="branch-node costs-branch">
+            <div class="branch-icon">💰</div>
+            <div class="branch-title">Custos & Tempo</div>
+            <div class="branch-subtitle">Investimento</div>
+        </div>
+
+        <div class="branch-node differentials-branch">
+            <div class="branch-icon">🚀</div>
+            <div class="branch-title">Diferenciais</div>
+            <div class="branch-subtitle">Vantagens Competitivas</div>
+        </div>
+
+        <!-- Sub-nodes -->
+        <div class="sub-node sub-node-tech-1">
+            <strong>Frontend</strong><br>
+            HTML, CSS, JavaScript<br>
+            React/Vue.js
+        </div>
+
+        <div class="sub-node sub-node-tech-2">
+            <strong>Backend & IA</strong><br>
+            APIs RESTful<br>
+            Machine Learning
+        </div>
+
+        <div class="sub-node sub-node-features-1">
+            <strong>Core Features</strong><br>
+            Dashboard intuitivo<br>
+            Relatórios automáticos
+        </div>
+
+        <div class="sub-node sub-node-features-2">
+            <strong>Extras</strong><br>
+            Notificações push<br>
+            Integração social
+        </div>
+
+        <div class="sub-node sub-node-audience-1">
+            <strong>Primário</strong><br>
+            Empresas médias<br>
+            Gestores de projeto
+        </div>
+
+        <div class="sub-node sub-node-audience-2">
+            <strong>Secundário</strong><br>
+            Freelancers<br>
+            Pequenos negócios
+        </div>
+
+        <div class="sub-node sub-node-costs-1">
+            <strong>Desenvolvimento</strong><br>
+            R$ 25.000 - R$ 40.000<br>
+            4-6 meses
+        </div>
+
+        <div class="sub-node sub-node-costs-2">
+            <strong>Manutenção</strong><br>
+            R$ 1.500/mês<br>
+            Suporte contínuo
+        </div>
+    </div>
+
+    <script>
+        // Adicionar interatividade aos nodes
+        document.querySelectorAll('.branch-node').forEach(node => {
+            node.addEventListener('click', function() {
+                // Efeito de "clique"
+                this.style.transform = 'translateY(-5px) scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                }, 150);
+            });
+        });
+
+        // Efeito de hover nos sub-nodes
+        document.querySelectorAll('.sub-node').forEach(node => {
+            node.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
+            });
+            
+            node.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            });
+        });
+
+        // Animação do nó central
+        const centralNode = document.querySelector('.central-node');
+        centralNode.addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'pulse 2s infinite';
+            }, 100);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'985edbad345fd917',t:'MTc1OTAxNjU1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

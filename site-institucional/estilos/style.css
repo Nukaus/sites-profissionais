@@ -137,6 +137,54 @@ header{
     margin: 30px 20px;
 }
 
+.recursos{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.rec{
+    text-align: center;
+    font-family: var(--fonttitle);
+    max-width: 500px;
+    max-height: 200px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: var(--fundosecundario);
+    color: var(--titulos);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.404);
+}
+
+.rec p{
+    font-family: var(--fonttextos);
+}
+
+.rec:hover{
+    border: 2px solid var(--textosecundario);
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.637);
+    transition: transform 0.3s, border 0.1s;
+}
+
+.botao3{
+    text-decoration: none;
+    color: var(--fundosecundario);
+    background-color: var(--titulos);
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.315);
+}
+
+.botao3:hover{
+    background:#0575e6;
+    color: var(--titulos);
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.425);
+    transition: transform 0.3s, border 0.1s;
+}
+
 #clientes{
     display: flex;
     max-width: 1100px;
@@ -223,5 +271,14 @@ footer{
 
     .parcerias img{
         max-width: 300px;
+    }
+
+    .recursos{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rec{
+        margin: auto;
     }
 }
