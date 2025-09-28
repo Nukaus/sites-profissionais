@@ -148,7 +148,7 @@ header{
 .rec{
     text-align: center;
     font-family: var(--fonttitle);
-    max-width: 400px;
+    max-width: 450px;
     min-height: 175px;
     border-radius: 20px;
     padding: 10px;
@@ -280,5 +280,6 @@ footer{
 
     .rec{
         margin: auto;
+        max-width: 350px;
     }
 }
