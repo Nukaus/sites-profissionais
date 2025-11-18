@@ -4,20 +4,25 @@
     margin: 0;
     padding: 0;
 }
-
 :root{
-    --font-principal: "Poppins", sans-serif;
+    --font-corpo: "Poppins", sans-serif; /* Para parágrafos e corpo do texto */
+    --font-titulo: "Roboto Slab", serif; /* Para h1, h2, h3 */
+    --cor-fundo: #33393F;
+    --cor-texto: #F5F5F5;
+    --cor-destaque: #25D366; /* Verde WhatsApp */
 }
 
 body{
-    background-color: #33393F;
-    color: white;
-    font-family: var(--font-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: var(--font-corpo); /* Aplicando a fonte do corpo */
 }
 
-body h1{
-    color: #F5F5F5;
+body h1, body h2, body h3{
+    color: var(--cor-texto);
+    font-family: var(--font-titulo); 
 }
+
 
 #top{
     display: flex;
@@ -59,14 +64,12 @@ body h1{
     height: auto;
 }
 
-
-
 .whatsapp-btn{
     display: inline-block; 
     transition: transform 0.3s ease, background-color 0.3s ease;
     box-shadow: 0px 0px 10px 2px #1EBE5D;
     font-weight: bold;
-    background-color: #25D366;
+    background-color: var(--cor-destaque);
     color:  #fff;
     padding: 12px 20px;
     border-radius: 30px;
