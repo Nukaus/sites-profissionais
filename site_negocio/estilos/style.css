@@ -1,126 +1,141 @@
-header{
-    background-color: blue;
-    padding: 10px;
+/* ========================================================= */
+/* 1. Reset e Variáveis de Cores (Paleta Profissional)       */
+/* ========================================================= */
+
+/* Reset básico (mantido do original, mas pode ser expandido) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Fonte Padrão para Consistência */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#home{
-   text-align: center;
-   color: white;
+:root {
+    /* Paleta Profissional */
+    --primary-color: #007bff; /* Azul vibrante (Primário do Bootstrap 5) */
+    --secondary-color: #6c757d; /* Cinza suave */
+    --accent-color: #28a745; /* Verde para CTA (Sucesso) */
+    --bg-light: #f8f9fa; /* Fundo Leve */
+    --text-dark: #212529; /* Texto Escuro */
+    --text-light: #ffffff; /* Texto Claro */
 }
 
-#about{
-    display: flex;
-    margin-top: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-#abouttwo{
-   margin: 30px 0 0 15px;
+body {
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--bg-light);
 }
 
-#servicesone{
-    display: flex;
+/* ========================================================= */
+/* 2. Estilos de Componentes (Navegação e Hero)              */
+/* ========================================================= */
+
+/* Navegação */
+.navbar-brand {
+    font-weight: 700;
 }
 
-.linha {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
+/* Hero Section (substitui o 'header' e '#home' antigos) */
+.hero-section {
+    background-color: var(--primary-color); /* Fundo Azul */
+    padding: 100px 15px !important; /* Mais altura para impacto */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Sombra para leitura */
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('imagens/hero-bg.jpg'); /* Exemplo de imagem de fundo se tiver */
+    background-size: cover;
+    background-position: center;
+}
 
-.servicestwo{
-    max-width: 300px;
-    padding: 10px;
-    margin: auto;
-    text-align: justify;
+.hero-section .btn-primary {
+    background-color: var(--accent-color); /* Botão CTA em verde */
+    border-color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.hero-section .btn-primary:hover {
+    background-color: #218838;
+    border-color: #218838;
+    transform: translateY(-2px);
+}
+
+.hero-section .btn-outline-light {
+    border-width: 2px;
+}
+.hero-section .btn-outline-light:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--text-light) !important;
+}
+
+/* ========================================================= */
+/* 3. Seção Sobre e Serviços                                 */
+/* ========================================================= */
+
+/* Ícones dos Serviços (Font Awesome) */
+#services .fa-solid {
+    color: var(--primary-color); /* Ícones na cor primária */
+    transition: transform 0.3s ease;
+}
+
+/* Efeito Hover nos Cards de Serviço */
+#services .card {
+    border: none;
+    border-bottom: 4px solid transparent; /* Linha de base transparente */
+    transition: all 0.3s ease;
+}
+
+#services .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-bottom-color: var(--primary-color); /* Linha azul no hover */
+}
+
+#services .card:hover .fa-solid {
+    transform: scale(1.1);
+}
+
+/* Sobre (para estilizar a imagem) */
+#about img {
+    max-width: 100%;
+    height: auto;
+    border: 5px solid var(--primary-color); /* Borda decorativa */
+}
+
+/* ========================================================= */
+/* 4. Seção Contato (Formulário e Infos)                     */
+/* ========================================================= */
+
+/* Estilo para links de contato */
+#contact .list-unstyled a:hover {
+    color: var(--primary-color) !important;
+    text-decoration: underline;
+}
+
+/* Inputs e Textarea (usando as classes .form-control do Bootstrap) */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Sombra sutil ao focar */
+}
+
+/* ========================================================= */
+/* 5. Responsividade (Ajustes Finais)                        */
+/* ========================================================= */
+
+/* Não precisamos de muitas media queries, pois o Bootstrap já cuida da maioria dos layouts (row/col) */
+
+@media (max-width: 768px) {
+    /* Ajustes específicos para telas menores */
     
-}
-
-h3{
-    text-align: center;
-}
-
-.servicestwo a{
-    text-decoration: none;
-}
-
-.imagem{
-    display: flex;
-}
-
-.servicesimg{
-    width: 200px;
-    height: 200px;
-    margin: auto;
-
-}
-#contat{
-    display: flex;
-    justify-content: space-between;
-}
-.formulario{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 400px; 
-    gap: 10px;
-    margin: 30px 0 0 15px;
-     
-}
-
-input, textarea, button{
-    padding: 5px;
-    font-size: 16px;
-    margin: 5px;
-}
-
-.formulario button{
-    width: 198px;
-}
-
-.formulario a{
-    text-decoration: none;
-    color: black;
-}
-
-.icon{
-    width: 25px;
-    height: 25px;
-}
-
-@media (max-width: 760px){
-#about{
-    flex-wrap: wrap;
-}
-
-#imgper{
-    margin: auto;
-}
-
-#servicesone{
-    display: block;
-}
-
-.servicestwo{
-    max-width: 200px;
-    padding: 10px;
+    .hero-section {
+        padding: 60px 15px !important;
+    }
     
-}
+    .hero-section h1 {
+        font-size: 2.5rem !important;
+    }
 
-
-.servicesimg{
-    width: 100px;
-    height: 100px;
-}
-}
-
-@media (max-width: 1010px){
-#servicesone{
-    display: block;
-}
-
-.servicesimg{
-    width: 80px;
-    height: 80px;
-}
+    /* Reduz a margem entre a imagem e o texto na seção Sobre */
+    #about .col-lg-6:first-child {
+        margin-bottom: 25px; 
+    }
 }
