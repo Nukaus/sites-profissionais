@@ -1,147 +1,185 @@
-body{
-    background-color: black;
-    color: white;
+/* ========================================================= */
+/* 1. Reset e Variáveis de Cores (Dark/Acento Profissional)  */
+/* ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-
-#head{
-    display: flex;
-    justify-content: space-between;
+:root {
+    /* Paleta Dark Otimizada */
+    --bg-dark: #121212; /* Fundo preto mais suave (melhor que black puro) */
+    --bg-light: #1f1f1f; /* Cor secundária para destaque (cards) */
+    --text-light: #f4f4f4; /* Texto principal */
+    --accent-color: #ff9800; /* Laranja/Âmbar (Energia/Criatividade - Destaque Principal) */
+    --border-color: #444444; /* Borda suave */
 }
 
-#headerchild{
-    width: 290px;
-    height: 290px;
-    border-radius: 10px;
-    margin: 10px;
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh; /* Garante que o body ocupe toda a tela verticalmente */
 }
 
-hr{
-    margin: 20px;
+/* Títulos das Seções */
+h1, h2 {
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text-light);
 }
 
-#portimg{
-    display: flex;
-    justify-content: center;
+/* Linha Divisória */
+hr {
+    border-color: var(--border-color);
+    opacity: 0.5;
+    margin: 40px auto; /* Aumenta o espaçamento vertical */
 }
 
-.linha {
-    display: flex;
-    justify-content: space-between;
-  }
+/* ========================================================= */
+/* 2. Componentes e Estilos Gerais                           */
+/* ========================================================= */
 
-.imgport{
-    width: 200px;
+/* Navegação */
+.navbar-brand {
+    font-weight: 900;
+    color: var(--accent-color) !important;
+}
+
+/* Botão CTA Principal (Ver Portfólio) */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--bg-dark) !important; /* Texto escuro no botão de destaque */
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e68900; /* Laranja levemente mais escuro */
+    border-color: #e68900;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+}
+
+/* Botão Outline */
+.btn-outline-primary {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+.btn-outline-primary:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-dark);
+}
+
+/* ========================================================= */
+/* 3. Hero Section (#hero)                                   */
+/* ========================================================= */
+/* Removida a regra #head, o layout é gerido por .row e .col */
+
+#hero {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+#hero img {
+    /* Removidos width/height fixos */
+    object-fit: cover; /* Garante que a imagem preencha a área sem distorcer */
+    max-height: 450px; /* Limite a altura em desktop */
+    border: 5px solid var(--accent-color); /* Borda de destaque na cor principal */
+}
+
+/* ========================================================= */
+/* 4. Portfólio (Galeria)                                    */
+/* ========================================================= */
+/* Removidos #portimg e .linha, layout é feito por .row .g-3 */
+
+.gallery-item img {
+    /* Mantido o width: 100% e display: block para responsividade */
     height: 200px;
-    margin: 5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-}
-
-.imgport:hover{
-    transform: scale(1.05);
-}
-
-.img-responsiva {
-  width: 100%;
-  height: 160px;
-  display: block;
-  border-radius: 10px;
-  
-}
-
-#servicos{
-    display: flex;
-    justify-content: space-between;
-}
-
-.trabalhos{
-    width: 400px;
-    height: 165px;
-    border: 1px solid rgb(199, 199, 199);
+    object-fit: cover;
     border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    text-decoration: none;
-    color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.trabalhos:hover{
-    transform: scale(1.05);
-    text-decoration: underline;
+.gallery-item:hover img {
+    transform: scale(1.03); /* Zoom leve */
+    opacity: 0.85; /* Escurece suavemente */
+}
+
+/* ========================================================= */
+/* 5. Serviços (Cards)                                       */
+/* ========================================================= */
+/* Removidos #servicos e .trabalhos */
+
+#services .card {
+    background-color: var(--bg-light); /* Fundo um pouco mais claro que o body */
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+#services .card:hover {
+    transform: translateY(-5px); /* Efeito de elevação */
+    box-shadow: 0 15px 25px rgba(255, 152, 0, 0.15); /* Sombra laranja sutil */
+    border-color: var(--accent-color);
+}
+
+#services .card i {
+    color: var(--accent-color) !important;
+}
+
+/* ========================================================= */
+/* 6. Contato (Formulário)                                   */
+/* ========================================================= */
+/* Removidos #formu, .formulario, .campo */
+
+input.form-control, 
+textarea.form-control {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    /* Removido o padding e margin fixos, usar classes Bootstrap (p-x, m-y) */
+}
+
+input.form-control:focus, 
+textarea.form-control:focus {
+    background-color: var(--bg-dark);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(255, 152, 0, 0.25); /* Foco Laranja */
+    color: var(--text-light);
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+/* ========================================================= */
+/* 7. Responsividade (Ajustes Finais)                        */
+/* ========================================================= */
+
+@media (max-width: 992px) {
+    /* Ajustes para tablet */
+    #hero img {
+        max-height: 350px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes para mobile */
     
-}
-
-
-#formu{
-    display: flex;
-   justify-content: space-around;
-}
-
-.formulario {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-.campo {
-    display: flex;
-    flex-direction: column;
+    #hero img {
+        /* Garante que a imagem preencha bem no topo em mobile */
+        width: 100%;
+        max-height: 300px;
+    }
     
-}
-
-label {
-    margin-bottom: 4px;
-    font-weight: bold;
-}
-
-input, textarea{
-    padding: 5px;
-    font-size: 16px;
-    margin: 5px;
-    resize: none;
-    background-color: black;
-    border: 1px solid white;
-    border-radius: 5px;
-    color: white;
-}
-
-#subject{
-    height: 110px;
-}
-
-.formulario button{
-    width: 198px;
-    align-self: center;
-}
-
-footer{
-    margin-top: 20px;
-}
-
-@media (max-width: 760px){
-    #headerchild{
-        max-width: 200px;
-        max-height: 200px;
-        border-radius: 10px;
-        margin: 10px;
+    h1.display-3 {
+        font-size: 2.5rem !important;
     }
-
-    #portimg{
-        display: block;
-    }
-
-    #servicos{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-}
-
-@media (max-width: 1024px){
-   
 }
